@@ -8,7 +8,11 @@ namespace DAL
 {
     public class LoginRepo : IRepository<LoginUser, int>
     {
-
+        static PMAEntities db;
+        public LoginUser(PMAEntities db)
+        {
+            this.db = db;
+        }
 
         public void Login(LoginUser e)
         {

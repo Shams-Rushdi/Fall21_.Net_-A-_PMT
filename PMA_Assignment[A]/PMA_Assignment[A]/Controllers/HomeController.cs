@@ -10,34 +10,21 @@ using System.Web.Security;
 using BEL;
 using BLL;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using PMA_Assignment_A_.HelperFunction;
+using System.Web.Http;
 
 namespace PMA_Assignment_A_.Controllers
 {
     [EnableCors("*","*","*")]
-
     public class HomeController : ApiController
     {
-        public JsonResult Login(LoginUser u)
+        [Route("api/Student/Names")]
+        [HttpGet]
+        public void Add(UserSigninModel s)
         {
-            if (ModelState.IsValid)
-            {
-                PMAEntities db = new PMAEntities();
-                var ur = UserHelper.auth(u.UserName, u.Password);
-
-                if (ur != null)
-                {
-                    //Session["Id"] = u.Id;
-                    //FormsAuthentication.SetAuthCookie(ur.Id, true);
-                    //return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    //ViewBag.error = "Phone or Password is Invalid";
-                }
-            }
-            
-
+            LoginService.login(s);
         }
+
     }
 }

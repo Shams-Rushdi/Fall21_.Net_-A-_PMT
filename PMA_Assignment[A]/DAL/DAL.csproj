@@ -50,17 +50,39 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="LoginRepo.cs" />
+    <Compile Include="LoginUser.cs">
+      <DependentUpon>PMA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>PMA.tt</DependentUpon>
+    </Compile>
     <Compile Include="PMA.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PMA.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PMA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PMA.tt</DependentUpon>
     </Compile>
     <Compile Include="PMA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PMA.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ProjectCategory.cs">
+      <DependentUpon>PMA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supervisor.cs">
+      <DependentUpon>PMA.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>PMA.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="PMA.edmx">
@@ -79,10 +101,19 @@
     <Content Include="PMA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PMA.Context.cs</LastGenOutput>
+      <DependentUpon>PMA.edmx</DependentUpon>
+    </Content>
+    <Content Include="PMA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PMA.edmx</DependentUpon>
+      <LastGenOutput>PMA.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
